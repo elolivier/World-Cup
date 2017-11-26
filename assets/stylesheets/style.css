@@ -1,0 +1,376 @@
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+/*---------------HEADER---------------*/
+
+.cup-logo {
+  height: 60px;
+  width: 100vw;
+}
+
+.jumbotron {
+  padding: 0;
+  margin: 0;
+}
+
+#page-title {
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+/*--------------CONTAINER-----------------*/
+
+.container-fluid {
+  padding-top: 105px;
+  padding-bottom: 60px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*---------------INDEX PAGE---------------*/
+
+.dates img {
+  width: 50px;
+  height: 50px;
+}
+
+.day-header {
+  margin: 0;
+  padding: 5px;
+}
+
+.game {
+  display: flex;
+  justify-content: space-between;
+}
+
+.more-games {
+  font-size: 30px;
+}
+
+.more-games p {
+  margin: 0;
+}
+
+/*---------------FIELD PAGE---------------*/
+
+.teams {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.address {
+  margin-top: 20px;
+}
+
+/*---------------STANDINGS PAGE---------------*/
+
+.group-standing {
+  margin-bottom: 3px;
+}
+
+.group-standing h2 {
+  margin: 0;
+  padding: 10px;
+}
+
+.focus {
+  text-align: left;
+  margin-left: 15px;
+}
+
+.table { display: none; }
+
+/*---------------CHAT PAGE---------------*/
+
+#chat-container {
+  padding: 0;
+}
+
+#div-chat {
+  width: 100vw;
+  margin: 0;
+  border: 0;
+  font-size: 26px;
+}
+
+#posts {
+  font-size: 26px;
+  min-height: 86vh;
+  width: 100vw; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#create-post {
+  padding-top: 0;
+  margin: 0;
+}
+
+/*---------------SIGNIN/SIGNUP PAGE---------------*/
+
+#email,
+#signin,
+#pass,
+#not-user,
+#join,
+#new-username,
+#new-email,
+#new-pass,
+#signup {
+  padding: 10px;
+  font-size: 26px;
+  margin-top: 3px;
+}
+
+/*---------------MORE PAGE---------------*/
+
+.glyphicon-menu { 
+  margin-right:20px; 
+}
+
+.span-more {
+  font-size: 30px;
+  width: 90vw;
+  text-align: left;
+  padding-left: 15px;
+  color: #2E2E2E;
+  margin-bottom: 5px;
+}
+
+/*---------------SCHEDULE PAGE---------------*/
+
+.group {
+  padding: 0;
+  margin: 5px;
+}
+
+.flags {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.flags img {
+  width: 50px;
+  height: 50px;
+}
+
+.flags div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.game-info {
+  display: none;
+}
+
+.game-date {
+  display: flex;
+  justify-content: space-around;
+}
+
+.game-date p {
+  padding: 15px;
+}
+
+.game-teams div {
+  display: flex;
+}
+
+.game-teams p {
+  margin-bottom: 0;
+}
+
+.game-teams img {
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.team1,
+.team2 {
+  justify-content: center;
+}
+
+.versus {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*---------------RESULTS PAGE---------------*/
+
+/*---------------FOOTER---------------*/
+
+.glyphicon {
+  font-size: 30px;
+}
+
+#footer {
+  height: 60px; 
+}
+
+#bottomNav {
+  padding:5px;
+}
+
+#bottomNav a {
+  font-size:12pt;
+  color:#ddd;
+  text-decoration:none;
+}
+
+#bottomNav a:hover {
+  color:#fff;
+}
+
+/*---------------FLEX---------------*/
+
+.xcenter {
+  display: flex;
+  justify-content: center; 
+}
+
+.ycenter {
+  display: flex;
+  align-items: center; 
+}
+
+.column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*---------------COMMON FEATURES---------------*/
+
+.font35 {
+  font-size: 15px;
+}
+
+.font45 {
+  font-size: 20px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-white {
+  color: whitesmoke;
+}
+
+.background-dark {
+  background-color: #04326A;
+}
+
+.background-light {
+  background-color: #9EB7D0;
+}
+
+.background-img {
+  background-image: url("../images/background-blue.jpg");
+}
+
+.glyphicon-hand-left {
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+.glyphicon-send {
+  font-size: 18px;
+}
+
+/*---------------MEDIA QUERY---------------*/
+
+@media only screen and (orientation: landscape) {
+  body { display: flex; }
+  #header {  }
+  .cup-logo { display: none; }
+  #page-title {   
+    font-size: 20px;
+    padding-bottom: 0;
+  }
+  #upcoming-game { display: inline-block; }
+
+  .container-fluid { padding-top: 20px; padding-bottom: 40px; }
+  #chat { margin-bottom: 40px; }
+  #field-container { 
+    display: inline-block;
+    padding-left: 5px;
+  }
+  #map { width: 300px; }
+  .dates img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #field-info p {
+    margin: 0;
+  }
+
+  .address {
+    margin-top: 5px;
+  }
+
+  .font45 { font-size: 15px; }
+
+  .day-header {
+    margin: 0;
+    padding: 5px;
+  }
+
+  .game {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .more-games {
+    display: none;
+    font-size: 20px;
+  }
+
+  .more-games p {
+    margin: 0;
+  }
+
+  .span-more { font-size: 15px; }
+
+  #standings-container,
+  #schedule-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #standings-container div { margin-right: 15px; }
+
+  .focus { font-size: 12px; padding-left: 0px;}
+
+  .game-info, .flags { font-size: 12px; }
+
+  .win, .draw, .lose { background-color: #04326A; } 
+
+  .group { margin-right: 5px; }
+
+  .group img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .game-info p { font-size: 11px; }
+
+  #footer { height: 40px; }
+  .glyphicon { font-size: 15px; }
+  #bottomNav a { font-size:9pt; }
+}
