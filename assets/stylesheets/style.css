@@ -110,8 +110,9 @@ body {
 }
 
 #create-post {
-  padding-top: 0;
+  padding: 0;
   margin: 0;
+  background-color: #585858;
 }
 
 /*---------------SIGNIN/SIGNUP PAGE---------------*/
@@ -288,7 +289,8 @@ body {
 }
 
 .glyphicon-send {
-  font-size: 18px;
+  font-size: 35px;
+  color: whitesmoke;
 }
 
 /*---------------MEDIA QUERY---------------*/
@@ -373,4 +375,5 @@ body {
   #footer { height: 40px; }
   .glyphicon { font-size: 15px; }
   #bottomNav a { font-size:9pt; }
+  .glyphicon-send { font-size: 35px; }
 }

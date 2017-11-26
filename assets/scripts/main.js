@@ -106,8 +106,12 @@ $(function () {
 			getPosts();
 		});
 		$('#create-post').click(function() {
-			writeNewPost();
-			$('#body').html("");
+			if (($('#body').val() == "")) {
+				alert('Please write something');
+			} else {
+				writeNewPost();
+				$('#body').val("");
+			}
 		});
 		//*************************************************
 		//-----------MORE PAGE------------
@@ -174,7 +178,6 @@ function orientationChanged() {
 
 function isLandscape() {
 	var orientation = window.matchMedia("(orientation: landscape)").matches;
-	//alert(orientation);
 	return orientation;
 }
 
@@ -199,8 +202,10 @@ function prepareIt(toShow, pageTitle) {
 	$(toShow).each(function(index, object) {
 		$(object).addClass('active');
 	});
-	$('#page-title').html(pageTitle);
-	if (pageTitle==="Next Matches") {$("#back-arrow").removeClass("active");}
+	$('#page-title').html(''+pageTitle);
+	if (pageTitle==="Next Matches") {
+		$("#back-arrow").removeClass("active");
+	}
 	showIt();
 }
 
@@ -209,36 +214,6 @@ function showIt() {
 	$("div[id*='container'], nav, .win, .draw, .lose").not('.active').hide();
 }
 
-function changedOrientation() { 
-	var pageId = whichPage();            		
-    if (Math.abs(window.orientation) === 90) {
-        // Landscape
-        switch(pageId) {
-				case 'index-container':
-					prepareIt(['#index-container','#field-container'], 'Next Matches');
-				break;
-				case 'field-container':
-					prepareIt(['#index-container','#field-container'], 'Next Matches');
-				break;
-				case 'standings-container':
-					prepareIt(['#standings-container', '.win', '.draw', '.lose', '#back-arrow'], 'Standings');
-				break;
-			}
-    } else {
-    	// Portrait
-    	switch(pageId) {
-				case 'index-container':
-					prepareIt(['#index-container'], 'Next Matches');
-				break;
-				case 'field-container':
-					prepareIt(['#index-container'], 'Next Matches');
-				break;
-				case 'standings-container':
-					prepareIt(['#standings-container', '#back-arrow'], 'Standings');
-				break;
-			}
-    }
-}
 //*************************************
 //***************CHAT******************
 //*************************************
@@ -298,15 +273,15 @@ function writeNewPost() {
         body: text
     }
 
-    var newPostKey = firebase.database().ref().child('myMatch').push().key;
+    var newPostKey = firebase.database().ref().child('myChat').push().key;
     var updates = {};
     updates[newPostKey] = postData;
     getPosts();
-    return firebase.database().ref().child('myMatch').update(updates);
+    return firebase.database().ref().child('myChat').update(updates);
 }
 
 function getPosts() {
-    firebase.database().ref('myMatch').on('value', function(data) {
+    firebase.database().ref('myChat').on('value', function(data) {
         var logs = document.getElementById('posts');
         logs.innerHTML="";        
         var posts = data.val();
@@ -326,14 +301,14 @@ function getPosts() {
 //*************************************
 //*************HOME PAGE*************
 function getDay(gameInfo) {
-			var games_data = '<div class="row">';
-			games_data += '<div class="text-center">';
-			games_data += '<h1 class="day-header font45 font-blod background-light">';
-			games_data += gameInfo.date + '</h1></div>';
-			games_data += '<div class="dates">';
-			games_data += getGamesOfDay(gameInfo.games);
-			return games_data;
-		}
+	var games_data = '<div class="row">';
+	games_data += '<div class="text-center">';
+	games_data += '<h1 class="day-header font45 font-blod background-light">';
+	games_data += gameInfo.date + '</h1></div>';
+	games_data += '<div class="dates">';
+	games_data += getGamesOfDay(gameInfo.games);
+	return games_data;
+}
 
 function getGamesOfDay(gamesOfDay) {
 	var games_day = '';
