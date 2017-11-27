@@ -201,7 +201,7 @@
 		{
 			"short_name":"Ekaterinburg",
 			"long_name":"Ekaterinburg Arena",
-			"address":"Ulitsa Repina, 5, Yekaterinburg, Sverdlovskaya oblast', Rusia, 620028",
+			"address":"ul. Repina, 5, Yekaterinburg, Sverdlovskaya oblast', Rusia, 620028",
 			"map":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2182.7842995747733!2d60.57139611597269!3d56.83248978085589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c16f07246f9fc9%3A0x85758898fe2ae44!2sEstadio+Central!5e0!3m2!1ses!2ses!4v1511523427470",
 			"image":"assets/images/stadiums/ekaterinburg.jpg",
 			"capacity":"45000"
@@ -229,21 +229,21 @@
 		},{
 			"short_name":"Luzhniki",
 			"long_name":"Luzhniki Stadium",
-			"address":"Ulitsa Luzhniki, 24, Moskva, Rusia, 119048",
+			"address":"ul. Luzhniki, 24, Moskva, Rusia, 119048",
 			"map":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.4597493828087!2d37.551527015394015!3d55.71576198054349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b8719336f0f%3A0x65b83e6741430782!2sEstadio+de+Loujniki!5e0!3m2!1ses!2ses!4v1511524035144",
 			"image":"assets/images/stadiums/luzhniki.jpg",
 			"capacity":"81000"
 		},{
 			"short_name":"Saransk",
 			"long_name":"Mordovia Arena",
-			"address":"Volgogradskaya Ulitsa, 11, Saransk, Respublika Mordoviya, Rusia, 430009",
+			"address":"Volgogradskaya ul., 11, Saransk, Respublika Mordoviya, Rusia, 430009",
 			"map":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2334.8988627227736!2d45.2015223153141!3d54.18186698016265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414408f11a95ed59%3A0x324308f8be8215c2!2sMordovia+Arena!5e0!3m2!1ses!2ses!4v1511524094202",
 			"image":"assets/images/stadiums/mordovia.jpg",
 			"capacity":"45000"
 		},{
 			"short_name":"Nizhny",
 			"long_name":"Nizhny Stadium",
-			"address":"Ulitsa Dolzhanskaya, 2Ак1, Nizhnij Novgorod, Nizhegorodskaya oblast', Rusia, 603159",
+			"address":"ul. Dolzhanskaya, 2Ак1, Nizhnij Novgorod, Nizhegorodskaya oblast', Rusia, 603159",
 			"map":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2211.550590230994!2d43.961021815426726!3d56.337584380713785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4151d42a52a5a21f%3A0x2a8fc5c315b61b19!2sStadion+Nizhny+Novgorod!5e0!3m2!1ses!2ses!4v1511524186968",
 			"image":"assets/images/stadiums/nizhny.jpg",
 			"capacity":"45000"

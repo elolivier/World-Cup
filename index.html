@@ -22,7 +22,12 @@
                         <i class="glyphicon glyphicon-hand-left font-white"></i>
                     </a>
                 </nav>
-                <h1 id="page-title" class="col-xs-9"></h1>
+                <h1 id="page-title" class="col-xs-6"></h1>
+                <nav id="signout" class="col-xs-3" style="display: none;">
+                    <a class="link_out" href="#">
+                        <i class="glyphicon glyphicon-off font-white"></i>
+                    </a>
+                </nav>
             </div>
         </div> 
 <!-- INDEX PAGE -->
@@ -45,7 +50,6 @@
                     <div id="create-post" class="col-xs-2 text-center">
                         <a href="#"><i class="glyphicon glyphicon-send"></i></a>
                     </div>
-                    <!--<button id="create-post" class="col-xs-2 glyphicon glyphicon-send"></button>-->
                 </div>
             </div>
         </div>
@@ -53,7 +57,7 @@
         <div id="login-container" class="container-fluid" style="display: none;">
             <div id="div-signin">
                 <input id="email" class="col-xs-12" type="text" placeholder="email">
-                <input id="pass" class="col-xs-12" type="text" placeholder="password">
+                <input id="pass" class="col-xs-12" type="password" placeholder="password">
                 <button id="signin" class="col-xs-12">Go!</button>
                 <p id="not-user" class="col-xs-6 font-white font-bold">Not an User?</p>
                 <button id="join" class="col-xs-6">Join!</button>
@@ -64,28 +68,10 @@
             <div id="div-signup">
                 <input id="new-username" class="col-xs-12" type="text" placeholder="username">
                 <input id="new-email" class="col-xs-12" type="text" placeholder="email">
-                <input id="new-pass" class="col-xs-12" type="text" placeholder="password">
+                <input id="new-pass" class="col-xs-12" type="password" placeholder="password">
                 <button id="signup" class="col-xs-12">Done!</button>
             </div>
         </div>
-<!-- MORE PAGE -->
-        <div id="more-container" class="container-fluid" style="display: none;">
-            <div class="row">
-                <div class="items column-center">
-                    <div class="btn btn-lg ycenter background-light">
-                        <span id="schedule" class="span-more"><i class="glyphicon glyphicon-calendar glyphicon-menu"></i>Schedule</span>
-                    </div>
-                    <div class="btn btn-lg ycenter background-light">
-                        <span id="results" class="span-more"><i class="glyphicon glyphicon-list-alt glyphicon-menu"></i>Results</span>
-                    </div>
-                    <div class="btn btn-lg ycenter background-light">
-                        <span id="contact" class="span-more"><i class="glyphicon glyphicon-envelope glyphicon-menu"></i>Contact Us</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-<!-- RESULT PAGE -->
-        <div id="results-container" class="container-fluid" style="display: none;"></div>
 <!-- SCHEDULE PAGE -->
         <div id="schedule-container" class="container-fluid row" style="display: none;"></div>
 <!-- FOOTER -->
@@ -101,7 +87,7 @@
                     <a href="#"><i class="glyphicon glyphicon-comment"></i><br>Chat</a>
                 </div>
                 <div class="col-xs-3 text-center">
-                    <a href="#"><i class="glyphicon glyphicon-option-vertical"></i><br>More</a>
+                    <a href="#"><i class="glyphicon glyphicon-envelope"></i><br>Contact</a>
                 </div>
             </div>
         </div>

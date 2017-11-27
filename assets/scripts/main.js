@@ -1,8 +1,14 @@
-$(function () { 
-	$.getJSON("https://api.myjson.com/bins/14se8v", function(data) { 
+$(function () {
+	var $scrollingDiv = $("#field-container");
+	$(window).scroll(function(){			
+		$scrollingDiv
+			.stop()
+			.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
+	}); 
+	$.getJSON("https://api.myjson.com/bins/1bd1m3", function(data) { 
 		var dataCup = data;
 		//-----------FILLING GAMES------------
-		var i = 1;
+		var i = 2;
 		var k = i+2;
 		var fieldLoader = [dataCup.dates[i].games[0].team1,dataCup.dates[i].games[0].team2,dataCup.dates[i].date,dataCup.dates[i].games[0].time,dataCup.dates[i].games[0].location];
 		var missing_info = getMap(dataCup, dataCup.dates[i].games[0].location);
@@ -74,19 +80,21 @@ $(function () {
 				prepareIt(['#standings-container', '#back-arrow'], 'Standings');
 			}
 		});
-
 		$('.group-title').click(function() {
 			var divTapped = this;
 			var teamGroup = '.' + $(divTapped).text().trim().slice(-1);
 			$(teamGroup).toggle();
 		});
-
+		//-----------CONTACT US------------
+		$('.glyphicon-envelope').click(function() {
+			location.href = "mailto:nysl@chisoccer.org";
+		});
 		//*********************CHAT***********************
 		$('.glyphicon-comment').click(function() {
 			firebase.auth().onAuthStateChanged(function(user) {
 			  if (user) {
 			    // User is signed in.
-			    prepareIt(['#chat-container', '#back-arrow'], 'Chat');
+			    prepareIt(['#chat-container', '#back-arrow', '#signout'], 'Chat');
 			    getPosts();
 			  } else {
 			    // No user is signed in.
@@ -100,6 +108,8 @@ $(function () {
 		});
 
 		$('#signin').click(login);
+		$('#signout').click(logOut);
+
 		$('#signup').click(function() {
 			newUser();
 			prepareIt(['#chat-container', '#back-arrow'], 'Chat');
@@ -113,20 +123,7 @@ $(function () {
 				$('#body').val("");
 			}
 		});
-		//*************************************************
-		//-----------MORE PAGE------------
-		$('.glyphicon-option-vertical').click(function() {
-			prepareIt(['#more-container', '#back-arrow'], 'More');
-		});
-		//-----------CONTACT US------------
-		$('#contact').click(function() {
-			location.href = "mailto:nysl@chisoccer.org";
-		});
-		//-----------RESULTS PAGE------------
-		$('#results').click(function() {
-			prepareIt(['#results-container, #back-arrow'], 'Results');
-		});
-
+		//************************************************
 		//-----------EVALUATE ORIENTATION CONDITION------------
 		window.onorientationchange = orientationChanged; 	
 	});
@@ -231,6 +228,16 @@ function login() {
       var errorMessage = error.message;
       alert(errorMessage);
     });
+    $("#email").val("");
+    $("#pass").val("");
+}
+
+function logOut() {
+    firebase.auth().signOut().then(function () {
+        alert("Logout success!");
+    }, function (error) {
+        alert("Unable to Logout!!!!");
+    });
 }
 
 function newUser() {
@@ -249,7 +256,7 @@ function newUser() {
                 }).then(function() {
                 // Profile updated successfully!
                 //  "NEW USER NAME"
-                var displayName = user.displayName;
+                //var displayName = user.displayName;
                 }, function(error) {
                     alert(error);
                 });     
@@ -263,6 +270,9 @@ function newUser() {
       var errorMessage = error.message;
       alert(errorMessage);
     });
+    $("#new-email").val("");
+    $("#new-pass").val("");
+    $("#new-username").val("");
 }
 
 function writeNewPost() {   
@@ -317,7 +327,9 @@ function getGamesOfDay(gamesOfDay) {
 		games_day += '<div class="col-xs-3 column-center">';
 		games_day += '<img src="' + 'assets/images/flags/' + game_index.team1.toLowerCase().replace(/\s/g,'') + '.png" alt="Flag">';
 		games_day += '<p>' + game_index.team1 + '</p></div>';
-		games_day += '<div class="col-xs-6 column-center"><p>' + game_index.time + '</p><p>' + game_index.location + '</p></div>';
+		games_day += '<div class="col-xs-1 column-center"><p class="score">' + game_index.result[0] + '</p></div>';
+		games_day += '<div class="col-xs-4 column-center"><p>' + game_index.time + '</p><p>' + game_index.location + '</p></div>';
+		games_day += '<div class="col-xs-1 column-center"><p class="score">' + game_index.result[1] + '</p></div>';
 		games_day += '<div class="col-xs-3 column-center">';
 		games_day += '<img src="' + 'assets/images/flags/' + game_index.team2.toLowerCase().replace(/\s/g,'') + '.png" alt="Flag">';
 		games_day += '<p>' + game_index.team2 + '</p></div></div>';
@@ -343,7 +355,7 @@ function getField(data_field) {
 function getDataField(all_info, game_check) {
 	var temp = $(game_check).children();
 	var team1 = $(temp[0]).text();
-	var team2 = $(temp[2]).text();
+	var team2 = $(temp[4]).text();
 	$(all_info.dates).each(function(index,day) {
 		$(day.games).each(function(i, game) {
 			if (team1 == game.team1 && team2 == game.team2) {
