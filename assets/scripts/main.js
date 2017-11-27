@@ -27,8 +27,6 @@ $(function () {
 		//-----------FILLING SCHEDULE------------
 		$('#schedule-container').html(getGroups(dataCup));
 
-		//-----------FILLING RESULTS------------
-
 		//-----------INITIAL CONDITION------------
 		if(isLandscape()) {
 			prepareIt(['#index-container','#field-container'], 'Next Matches');	
@@ -199,9 +197,14 @@ function prepareIt(toShow, pageTitle) {
 	$(toShow).each(function(index, object) {
 		$(object).addClass('active');
 	});
-	$('#page-title').html(''+pageTitle);
-	if (pageTitle==="Next Matches") {
+	$('#page-title').html(pageTitle);
+	if (pageTitle=="Next Matches") {
 		$("#back-arrow").removeClass("active");
+		$('#page-title').removeClass('col-xs-6');
+		$('#page-title').addClass('col-xs-12');
+	} else {
+		$('#page-title').removeClass('col-xs-12');
+		$('#page-title').addClass('col-xs-6');
 	}
 	showIt();
 }
@@ -256,7 +259,7 @@ function newUser() {
                 }).then(function() {
                 // Profile updated successfully!
                 //  "NEW USER NAME"
-                //var displayName = user.displayName;
+                var displayName = user.displayName;
                 }, function(error) {
                     alert(error);
                 });     
