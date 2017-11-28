@@ -232,7 +232,8 @@ body {
   font-size: 30px;
 }
 
-#footer {
+#footer,
+#bottomNav {
   height: 60px; 
 }
 
@@ -321,11 +322,15 @@ body {
   .cup-logo { display: none; }
   #page-title {   
     font-size: 20px;
-    padding-bottom: 0;
+    padding-bottom: 5px;
   }
   #upcoming-game { display: inline-block; }
 
-  .container-fluid { padding-top: 30px; padding-bottom: 40px; }
+  .container-fluid { padding-top: 35px; padding-bottom: 40px; }
+  .score {
+    font-size: 25px;
+    align-self: flex-start;
+  }
   #chat { margin-bottom: 40px; }
   #field-container { 
     display: inline-block;
@@ -347,6 +352,7 @@ body {
   }
 
   .font45 { font-size: 15px; }
+  .font35 { font-size: 12px; }
 
   .day-header {
     margin: 0;
@@ -390,6 +396,7 @@ body {
     width: 25px;
     height: 25px;
   }
+  .group-standing { font-size: 11px; }
 
   .game-info p { font-size: 11px; }
 

@@ -72,7 +72,7 @@ $(function () {
 		$('.glyphicon-stats').click(function() {
 			if (isLandscape()) {
 				$('.group-standing').addClass('col-xs-5');
-				prepareIt(['#standings-container','.win', '.draw', '.lose'], 'Standings');
+				prepareIt(['#standings-container','.win', '.draw', '.lose', '#back-arrow'], 'Standings');
 				$('.active').css('background-color', '#04326A');
 			} else {
 				prepareIt(['#standings-container', '#back-arrow'], 'Standings');
@@ -329,13 +329,13 @@ function getGamesOfDay(gamesOfDay) {
 		games_day += '<div class="btn btn-primary btn-lg game ycenter background-img font45 font-white">';
 		games_day += '<div class="col-xs-3 column-center">';
 		games_day += '<img src="' + 'assets/images/flags/' + game_index.team1.toLowerCase().replace(/\s/g,'') + '.png" alt="Flag">';
-		games_day += '<p>' + game_index.team1 + '</p></div>';
-		games_day += '<div class="col-xs-1 column-center"><p class="score">' + game_index.result[0] + '</p></div>';
+		games_day += '<p class="font35">' + game_index.team1 + '</p></div>';
+		games_day += '<div class="score col-xs-1 column-center"><p>' + game_index.result[0] + '</p></div>';
 		games_day += '<div class="col-xs-4 column-center"><p>' + game_index.time + '</p><p>' + game_index.location + '</p></div>';
-		games_day += '<div class="col-xs-1 column-center"><p class="score">' + game_index.result[1] + '</p></div>';
+		games_day += '<div class="score col-xs-1 column-center"><p>' + game_index.result[1] + '</p></div>';
 		games_day += '<div class="col-xs-3 column-center">';
 		games_day += '<img src="' + 'assets/images/flags/' + game_index.team2.toLowerCase().replace(/\s/g,'') + '.png" alt="Flag">';
-		games_day += '<p>' + game_index.team2 + '</p></div></div>';
+		games_day += '<p class="font35">' + game_index.team2 + '</p></div></div>';
 	});
 	return games_day;
 }
