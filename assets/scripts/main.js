@@ -1,12 +1,12 @@
-$(function () {
-	var $scrollingDiv = $("#field-container");
-	$(window).scroll(function(){			
-		$scrollingDiv
-			.stop()
-			.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
-	}); 
+$(function () { 
 	$.getJSON("https://api.myjson.com/bins/1bd1m3", function(data) { 
 		var dataCup = data;
+		var $scrollingDiv = $("#field-container");
+		$(window).scroll(function(){			
+			$scrollingDiv
+			.stop()
+			.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
+		});
 		//-----------FILLING GAMES------------
 		var i = 2;
 		var k = i+2;
@@ -29,7 +29,13 @@ $(function () {
 
 		//-----------INITIAL CONDITION------------
 		if(isLandscape()) {
-			prepareIt(['#index-container','#field-container'], 'Next Matches');	
+			prepareIt(['#index-container','#field-container'], 'Next Matches');
+			// var $scrollingDiv = $("#field-container");
+			// $(window).scroll(function(){			
+			// 	$scrollingDiv
+			// 	.stop()
+			// 	.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
+			// });	
 		} else {
 			prepareIt(['#index-container'], 'Next Matches');
 		}
@@ -133,6 +139,12 @@ function orientationChanged() {
 		switch(pageId) {
 			case 'index-container':
 				prepareIt(['#index-container','#field-container'], 'Next Matches');
+				var $scrollingDiv = $("#field-container");
+				// $(window).scroll(function(){			
+				// 	$scrollingDiv
+				// 	.stop()
+				// 	.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
+				// });
 			break;
 			case 'field-container':
 				prepareIt(['#index-container','#field-container'], 'Next Matches');
@@ -351,7 +363,7 @@ function getField(data_field) {
 	field_data += '<p>' + data_field[5] + '</p></div><div id="field-map"><div>';
 	field_data += '<p class="address font-bold">' + data_field[6] + '</p></div>';
 	field_data += '<object id="map" type="text/html" data="' + data_field[7];
-	field_data += '" style="width:380px; height:200px; border:0;"></object></div></div>';
+	field_data += '" style="width:300px; height:200px; border:0;"></object></div></div>';
 	return field_data;
 }
 
