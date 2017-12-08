@@ -5,7 +5,7 @@ $(function () {
 		$(window).scroll(function(){			
 			$scrollingDiv
 			.stop()
-			.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
+			.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "fast" );			
 		});
 		//-----------FILLING GAMES------------
 		var i = 2;
@@ -29,13 +29,7 @@ $(function () {
 
 		//-----------INITIAL CONDITION------------
 		if(isLandscape()) {
-			prepareIt(['#index-container','#field-container'], 'Next Matches');
-			// var $scrollingDiv = $("#field-container");
-			// $(window).scroll(function(){			
-			// 	$scrollingDiv
-			// 	.stop()
-			// 	.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
-			// });	
+			prepareIt(['#index-container','#field-container'], 'Next Matches');	
 		} else {
 			prepareIt(['#index-container'], 'Next Matches');
 		}
@@ -51,6 +45,7 @@ $(function () {
 		});
 		//-----------SCHEDULE PAGE------------
 		$('.more-games, #schedule').click(function() {
+			window.scroll(0,0);
 			if (isLandscape()) {
 				$('.group').addClass('col-xs-5');
 				prepareIt(['#schedule-container, #back-arrow'], 'Schedule');
@@ -140,11 +135,6 @@ function orientationChanged() {
 			case 'index-container':
 				prepareIt(['#index-container','#field-container'], 'Next Matches');
 				var $scrollingDiv = $("#field-container");
-				// $(window).scroll(function(){			
-				// 	$scrollingDiv
-				// 	.stop()
-				// 	.animate({"marginTop": ($(window).scrollTop() + 0) + "px"}, "slow" );			
-				// });
 			break;
 			case 'field-container':
 				prepareIt(['#index-container','#field-container'], 'Next Matches');
@@ -310,12 +300,18 @@ function getPosts() {
         var logs = document.getElementById('posts');
         logs.innerHTML="";        
         var posts = data.val();
-        
+        var userName = firebase.auth().currentUser.displayName;
         for (var key in posts) {
             var text = document.createElement("div");
             var element = posts[key];
-            text.append(element.name + ': ');
-            text.append(element.body);
+            if (element.name == userName) {
+            	text.append(element.body);           
+            	$(text).addClass("own-message");
+            } else {
+            	text.append(element.name + '\n');
+            	text.append(element.body);
+            	$(text).addClass("others-message");
+            }
             logs.append(text);
         }
     })
