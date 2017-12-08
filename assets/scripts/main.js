@@ -360,8 +360,8 @@ function getField(data_field) {
 	field_data += '<div><img src="assets/images/flags/' + data_field[1].toLowerCase().replace(/\s/g,'');
 	field_data += '.png" alt="Flag"><p>' + data_field[1] + '</p></div></div>';
 	field_data += '<p>' + data_field[2] + ' at ' + data_field[3] + '</p>';
-	field_data += '<p>' + data_field[5] + '</p></div><div id="field-map"><div>';
-	field_data += '<p class="address font-bold">' + data_field[6] + '</p></div>';
+	field_data += '<p class="field-name">' + data_field[5] + '</p></div><div id="field-map">';
+	field_data += '<div class="div-address"><p class="address font-bold">' + data_field[6] + '</p></div>';
 	field_data += '<object id="map" type="text/html" data="' + data_field[7];
 	field_data += '" style="width:300px; height:200px; border:0;"></object></div></div>';
 	return field_data;
